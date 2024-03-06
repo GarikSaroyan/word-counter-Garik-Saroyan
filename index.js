@@ -5,37 +5,36 @@ const letSentences = document.getElementById('letSentences')
 
 
 inputText.addEventListener('keyup', (event) => {
-    console.log('inputText', inputText.value)
+    if (inputText.value.length === 0) {
+        letSum.innerHTML = 0
+        letWords.innerHTML = 0
+        letSentences.innerHTML = 0
+        return
+    }
     letters(inputText.value)
+    words(inputText.value)
+    sentences(inputText.value)
 })
 
 
 function letters(str) {
-    if (str.length === 0) {
-        letSum.innerHTML=0;
+    let sum = 0
 
-        return
-    }
-
-    let sum=0
-
-    for (let i = 0; i < str.length; i++){
-        if (str[i].match(/[a-z]/i)){
+    for (let i = 0; i < str.length; i++) {
+        if (str[i].match(/[a-z]/i)) {
             sum++
         }
     }
-
-    console.log('sum',sum )
-
-    letSum.innerHTML=sum;
+    letSum.innerHTML = sum;
 }
 
 function words(str) {
-
+    const array = str.trim().split(/\s+/);
+    letWords.innerHTML = array.length
 }
 
-function sentences() {
-
+function sentences(str) {
+    const array = str.trim().split('.');
+    letSentences.innerHTML = array.filter(i => i).length
 }
-
 
