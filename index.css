@@ -15,5 +15,14 @@ body{
 }
 
 .inputText{
-    width: ;
+    width: 100%;
+}
+
+.showBox{
+    padding-top:100px ;
+
+}
+
+.showBox h1 {
+    color: white;
 }
